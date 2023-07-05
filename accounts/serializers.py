@@ -18,9 +18,16 @@ class AccountSerializer(serializers.ModelSerializer):
             "permission_loan",
         ]
         extra_kwargs = {
-            'username': {'validators': [UniqueValidator(queryset=Account.objects.all(), message="A user with that username already exists.")]},
-            'email': {'validators': [UniqueValidator(queryset=Account.objects.all())]},
-            'password': {'write_only': True},
+            "username": {
+                "validators": [
+                    UniqueValidator(
+                        queryset=Account.objects.all(),
+                        message="A user with that username already exists.",
+                    )
+                ]
+            },
+            "email": {"validators": [UniqueValidator(queryset=Account.objects.all())]},
+            "password": {"write_only": True},
         }
 
     def create(self, validated_data):
