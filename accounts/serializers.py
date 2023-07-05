@@ -8,6 +8,7 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = [
             "id",
+            "cpf",
             "username",
             "password",
             "email",
