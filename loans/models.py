@@ -18,8 +18,4 @@ class Loan(models.Model):
     # )
 
     def __repr__(self) -> str:
-        return f"<Loan () )>"
-
-
-
-
+            return f"<Loan ({self.id}) {self.created_at} - {self.deadline} | Overdue: {self.overdue})>"

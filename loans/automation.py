@@ -4,21 +4,20 @@ from datetime import datetime
 from loans.models import Loan
 
 def check_loans():
-    print('TESTE DE AUTOMAÇÃO')
-
-    # # Define a data atual
+    # Define a data atual
     current_date = datetime.now().date()
-    # # Percorre os objetos Loan
 
+    # Percorre os objetos Loan
     for loan in Loan.objects.all():
-        print('CURRENTDATE', current_date)
-        print('DEADLINE',loan.deadline)
-        if loan.deadline < current_date:
-            print('ENTROU NO IF')
+        if loan.deadline <= current_date:
             loan.overdue = True
             loan.save()
+            
+    print( "CHEGAMOS NO PRINT",Loan.objects.all())   
+    # Encerra a função após checar todos os livros
+    # return
 
-# Define a hora do agendamento
+
 schedule_time = "18:30"
 
 # Agende a função para ser executada todos os dias 
