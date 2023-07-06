@@ -1,29 +1,22 @@
-import schedule
-import time
+from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from loans.models import Loan
 
 def check_loans():
-    # Define a data atual
     current_date = datetime.now().date()
 
-    # Percorre os objetos Loan
     for loan in Loan.objects.all():
         if loan.deadline <= current_date:
             loan.overdue = True
             loan.save()
-            
-    print( "CHEGAMOS NO PRINT",Loan.objects.all())   
-    # Encerra a função após checar todos os livros
-    # return
+    return
 
 
-schedule_time = "18:30"
+def start():
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(check_loans, 'interval', hours=24)
+    scheduler.start()
 
-# Agende a função para ser executada todos os dias 
-# schedule.every().day.at(schedule_time).do(check_loans)
-schedule.every(60).seconds.do(check_loans)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+
+
