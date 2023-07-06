@@ -9,12 +9,12 @@ class Book(models.Model):
     published = models.IntegerField()
     number_copy = models.IntegerField()
     copies_available = models.IntegerField()
-    publishing_company_id = models.ForeignKey(
-        "books.Publishing_company", related_name="books"
-    )
-    user = models.ManyToManyField(
-        "accounts.Account", related_name="books"
-    )
+    ##publishing_company_id = models.ForeignKey(
+    "books.Publishing_company"##, related_name="books"
+    ##)
+    ##user = models.ManyToManyField(
+    "accounts.Account", ##related_name="books"
+   ## )
 
 class Publishing_company(models.Model):
     name = models.CharField(max_length=50)
