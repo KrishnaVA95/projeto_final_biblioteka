@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from .models import Genre
+from .serializer import GenreSerializer
+from rest_framework import generics
 
-# Create your views here.
+class GenreView(generics.ListCreateAPIView):
+    queryset= Genre.objects.all()
+    serializer_class= GenreSerializer
+
+
+class GenreDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset= Genre.objects.all()
+    serializer_class= GenreSerializer
