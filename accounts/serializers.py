@@ -39,3 +39,8 @@ class AccountSerializer(serializers.ModelSerializer):
         instance.set_password(instance.password)
         instance.save()
         return instance
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=127, write_only=True)
+    password = serializers.CharField(max_length=127, write_only=True)
