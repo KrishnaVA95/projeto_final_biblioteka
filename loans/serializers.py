@@ -17,9 +17,9 @@ class LoanSerializer(serializers.ModelSerializer):
         # Define o calendário brasileiro
         cal = Brazil()
 
-        # Adiciona 5 dias úteis à data atual
+        # Adiciona 3 dias úteis à data atual
         deadline = cal.add_working_days(current_date, 3)
-        print(deadline)
+        print(type( deadline ))
         # Adiciona o prazo ao objeto Loan
         validated_data['deadline'] = deadline
 
