@@ -5,11 +5,8 @@ from books.models import Book, Publishing_company
 from books.serializers import BookSerializer, CompanySerializer
 
 class BookView(generics.ListCreateAPIView):
-    def get(self, request: Request) -> Response:
-        books = Book.objects.all()
-        serializer = BookSerializer(books, many=True)
-        
-        return Response(serializer.data, status.HTTP_200_OK)
+    queryset= Book.objects.all()
+    serializer_class= BookSerializer
 
 
     def post(self, request: Request) -> Response:
@@ -27,12 +24,9 @@ class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class PublishCompanyView(generics.ListCreateAPIView):
-    def get(self, request: Request) -> Response:
-        publish = Publishing_company.objects.all()
-        serializer = BookSerializer(publish, many=True)
-        
-        return Response(serializer.data, status.HTTP_200_OK)   
-
+    queryset= Publishing_company.objects.all()
+    serializer_class= CompanySerializer
+  
     def post(self, request:Request) -> Response:
         serializer = CompanySerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
