@@ -7,19 +7,8 @@ class LoanView(generics.ListCreateAPIView):
     queryset= Loan.objects.all()
     serializer_class= LoanSerializer
 
-class LoanDetailView(generics.RetrieveAPIView):
+class LoanDetailView(generics.RetrieveUpdateDestroyAPIView):
     # apenas staff, admin ou user autenticado
     queryset= Loan.objects.all()
     serializer_class= LoanSerializer
 
-class LoanDetailUpdateView(generics.UpdateAPIView):
-    # apenas staff ou admin 
-    queryset= Loan.objects.all()
-    serializer_class= LoanSerializer
-    ...
-
-class LoanDetailDestroyView(generics.DestroyAPIView):
-    # apenas staff ou admin 
-    queryset= Loan.objects.all()
-    serializer_class= LoanSerializer
-    ...
