@@ -7,7 +7,6 @@ class Loan(models.Model):
 
     copies = models.ManyToManyField(
         "copys.Copy",
-        on_delete=models.PROTECT,
         related_name="loans"
     )
 

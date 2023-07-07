@@ -5,7 +5,6 @@ class Gender(models.Model):
 
     books = models.ManyToManyField(
         "books.Book",
-        on_delete=models.PROTECT,
         related_name="genres"
     )
 
