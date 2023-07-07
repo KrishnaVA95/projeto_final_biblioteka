@@ -3,6 +3,7 @@ from rest_framework.views import APIView, Request, Response, status
 
 from books.models import Book
 from books.serializers import BookSerializer
+from rest_framework import generics
 
 
 class BookView(APIView):
