@@ -4,10 +4,10 @@ from django.db import models
 
 # Create your models here.
 class Account(AbstractUser):
-    nome = models.CharField(max_length=127)
+    username = models.CharField(max_length=127, unique=True)
+    password = models.CharField(max_length=127)
     cpf = models.CharField(max_length=11, null=False, unique=True)
     email = models.EmailField(max_length=127, unique=True)
-    password = models.CharField(max_length=127)
     is_staff = models.BooleanField(default=False)
     address = models.CharField(max_length=255)
     created_at = models.DateField(auto_now_add=True)

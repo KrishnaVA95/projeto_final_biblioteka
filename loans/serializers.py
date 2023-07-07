@@ -7,7 +7,7 @@ class LoanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Loan
-        fields = ['id','overdue', 'created_at', 'deadline']
+        fields = ['id','overdue', 'created_at', 'deadline', 'copies', 'account']
         read_only_fields = ['id', 'created_at', 'deadline', 'overdue' ]
 
     def create(self, validated_data):

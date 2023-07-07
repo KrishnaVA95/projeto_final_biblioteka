@@ -18,14 +18,14 @@ class AccountSerializer(serializers.ModelSerializer):
             "permission_loan",
         ]
         extra_kwargs = {
-            "username": {
-                "validators": [
-                    UniqueValidator(
-                        queryset=Account.objects.all(),
-                        message="A user with that username already exists.",
-                    )
-                ]
-            },
+            # "username": {
+            #     "validators": [
+            #         UniqueValidator(
+            #             queryset=Account.objects.all(),
+            #             message="A user with that username already exists.",
+            #         )
+            #     ]
+            # },
             "email": {"validators": [UniqueValidator(queryset=Account.objects.all())]},
             "password": {"write_only": True},
         }
@@ -39,3 +39,8 @@ class AccountSerializer(serializers.ModelSerializer):
         instance.set_password(instance.password)
         instance.save()
         return instance
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=127, write_only=True)
+    password = serializers.CharField(max_length=127, write_only=True)
