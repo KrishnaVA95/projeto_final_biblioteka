@@ -1,21 +1,20 @@
 from django.test import TestCase
 from accounts.models import Account
-from books.models import Book
+from books.models import Book, Publishing_company
 from copys.models import Copy
 from genres.models import Gender
 from loans.models import Loan
-from publishing_companies.models import PublishingCompany
 from django.db import models
 
 
 class PublishingCompanyBookRelationTest(TestCase):
     @classmethod
     def setUpTestData(cls) -> None:
-        cls.publishing_company = PublishingCompany.objects.create(name="Martins fonts")
+        cls.publishing_company = Publishing_company.objects.create(name="Martins fonts")
 
         cls.books = [
             Book.objects.create(
-                title=f"book{i}", author=JRR Tolkien, number_page= 1200, description="Uma aventura fantástica pela terra-média", cover="https://tudosobreprodutos.com.br/img/livro-senhor-dos-aneis-o-capa-do-filme.png", published=2001, number_copy=5, copies_available=5, publishing_company=cls.publishing_company
+                title=f"book{i}", author="JRR Tolkien", number_page= 1200, description="Uma aventura fantástica pela terra-média", cover="https://tudosobreprodutos.com.br/img/livro-senhor-dos-aneis-o-capa-do-filme.png", published=2001, number_copy=5, copies_available=5, publishing_company=cls.publishing_company
             )
             for i in range(5)
         ]

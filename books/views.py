@@ -4,7 +4,6 @@ from rest_framework import generics
 from books.models import Book, Publishing_company
 from books.serializers import BookSerializer, CompanySerializer
 
-
 class BookView(generics.ListCreateAPIView):
     def get(self, request: Request) -> Response:
         books = Book.objects.all()

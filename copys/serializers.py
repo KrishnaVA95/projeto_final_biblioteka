@@ -3,7 +3,8 @@ from .models import Copy
 from books.serializers import BookSerializer
 
 class CopySerializer(serializers.ModelSerializer):
-    book = BookSerializer
+    book= BookSerializer(read_only=True)
     class Meta:
+        ordering = ["id"]
         model = Copy
         fields = ["id", "number_copy_book", "available", "conservation_state", "book"]
