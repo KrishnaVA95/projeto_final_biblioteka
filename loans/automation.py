@@ -6,9 +6,10 @@ def check_loans():
     current_date = datetime.now().date()
 
     for loan in Loan.objects.all():
-        if loan.deadline <= current_date:
-            loan.overdue = True
-            loan.save()
+        if loan.finalized_loan == False:
+            if loan.deadline <= current_date:
+                loan.overdue = True
+                loan.save()
     return
 
 

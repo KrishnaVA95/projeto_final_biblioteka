@@ -11,4 +11,4 @@ class Account(AbstractUser):
     is_staff = models.BooleanField(default=False)
     address = models.CharField(max_length=255)
     created_at = models.DateField(auto_now_add=True)
-    permission_loan = models.BooleanField(default=False)
+    permission_loan = models.BooleanField(default=True)
