@@ -1,10 +1,11 @@
-
 # BiblioteKa
+
 <div>
-  <img align="center" alt="Django" height="30" width="60" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg">
-  <img align="center" alt="PSQL" height="30" width="40" src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg">
-  <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+	<img align="center" alt="Django" height="30" width="60" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg">
+	<img align="center" alt="PSQL" height="30" width="40" src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg">
+	<img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
 </div>
+
 
 
 ## Index
@@ -21,6 +22,12 @@
 * [Gender](#gender)
 * [Publishing_company](#publishing_company)
 
+
+
+
+
+---
+<br />
 
 ### Introdução
 O sistema BiblioteKa é um software desenvolvido no quinto módulo do curso de Desenvolvimento Web Full Stack da Kenzie Academy Brasil. A aplicação gerencia atividades de uma biblioteca. Sendo assim, nosso objetivo é criar uma API para manipular os conteúdos e as regras de negócio.
@@ -39,18 +46,26 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 **[⬆ Back to Index](#index)**
 
 
+---
+<br />
 
 # Como Rodar os testes: 
 
 **[⬆ Back to Index](#index)**
 
+---
+<br />
+
 # Base url
-base url:
+
 ```
 
 ```
 
 **[⬆ Back to Index](#index)**
+
+---
+<br />
 
 # Rotas & Endpoints
 
@@ -61,6 +76,8 @@ Tipos de usuários:
     <li>Colaborador da biblioteca (staff).</li>
     <li>Admin</li>
 </ul>
+
+
 
 
 ```
@@ -106,6 +123,8 @@ Resposta do servidor:
 ```
 
 
+---
+<br />
 ```
 api/accounts/<int:pk>/
 ```
@@ -116,8 +135,13 @@ api/accounts/<int:pk>/
 
 **[⬆ Back to Index](#index)**
 
+---
+<br />
+
 ### Login
 
+---
+<br />
 ```
 api/accounts/login/
 ```
@@ -145,7 +169,8 @@ Resposta do servidor:
 
 **[⬆ Back to Index](#index)**
 
-
+---
+<br />
 
 ### Book
 
@@ -169,6 +194,9 @@ api/books/<int:pk>/
 
 **[⬆ Back to Index](#index)**
 
+---
+<br />
+
 ### Copy
 
 ```
@@ -188,6 +216,9 @@ api/books/<int:pk>/copys/<int:fk>/
 
 
 **[⬆ Back to Index](#index)**
+
+---
+<br />
 
 ### Loans
 
@@ -306,6 +337,9 @@ Resposta do servidor:
 
 **[⬆ Back to Index](#index)**
 
+---
+<br />
+
 ### Gender
 ```
 api/genres/
@@ -326,6 +360,8 @@ api/genres/<int:pk>/
 
 **[⬆ Back to Index](#index)**
 
+---
+<br />
 
 ### Publishing_company
 
@@ -346,3 +382,6 @@ api/publishing_company/<int:pk>/
 
 
 **[⬆ Back to Index](#index)**
+
+---
+<br />
