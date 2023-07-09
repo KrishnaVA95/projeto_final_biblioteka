@@ -78,7 +78,7 @@ Tipos de usuários:
 </ul>
 
 
-
+<h4 align ='center'> Listagem de usuários </h4>
 
 ```
 api/accounts/
@@ -86,14 +86,19 @@ api/accounts/
 
 ###### GET - Apenas staff e admin podem listar todos os usuários
 Não é necessario corpo de requisição:
-status 200
+`status 200`
 Resposta do servidor: 
 ```
 
 ```
 
+<h4 align ='center'> Criar usuário </h4>
 
 ###### POST - Qualquer pessoa pode criar uma conta. Apenas Admin deve ter permissão para criar staff.
+
+```
+api/accounts/
+```
 
 Corpo de requisição:
 ```json
@@ -106,7 +111,8 @@ Corpo de requisição:
 }
 ```
 
-status 201
+`status 201`
+
 Resposta do servidor: 
 ```json
 {
