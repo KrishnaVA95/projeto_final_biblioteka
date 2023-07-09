@@ -11,9 +11,9 @@
 ## Index
 
 * [Introdução](#introdução)
-* [Base url](#base--url)
+* [Base URL](#base--url)
 * [Como Rodar os testes](#como--rodar--os--testes)
-* [Rotas & Endpoints](#rotas--endpoints)
+* [Endpoints](#endpoints)
 * [Account](#account)
 * [Login](#login)
 * [Book](#book)
@@ -29,7 +29,7 @@
 ---
 <br />
 
-### Introdução
+# Introdução
 O sistema BiblioteKa é um software desenvolvido no quinto módulo do curso de Desenvolvimento Web Full Stack da Kenzie Academy Brasil. A aplicação gerencia atividades de uma biblioteca. Sendo assim, nosso objetivo é criar uma API para manipular os conteúdos e as regras de negócio.
 
 O banco de dados do sistema é composto por tabelas fundamentais com diferentes responsabilidades, sendo elas:
@@ -67,7 +67,7 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 ---
 <br />
 
-# Rotas & Endpoints
+# Endpoints
 
 ### Account
 Tipos de usuários:
@@ -125,6 +125,7 @@ Resposta do servidor:
 
 ---
 <br />
+
 ```
 api/accounts/<int:pk>/
 ```
@@ -142,6 +143,7 @@ api/accounts/<int:pk>/
 
 ---
 <br />
+
 ```
 api/accounts/login/
 ```
