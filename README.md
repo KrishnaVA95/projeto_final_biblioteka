@@ -6,11 +6,12 @@
   <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
 </div>
 
-# INDEX
-<ul align="center" >
-	<li> ## Introdução {###Introdução}</li>
 
-</ul>
+## Index
+
+* [Introdução](#introducao)
+* [Rotas & Endpoints](#rotas--endpoints)
+* [Book](#book)
 
 
 ### Introdução
@@ -33,7 +34,7 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 
 # Como Rodar os tests: 
 
-# Rotas e Endpoints
+# Rotas & Endpoints
 base url:
 ```
 
@@ -93,7 +94,7 @@ Resposta do servidor:
 ```
 api/accounts/login/
 ```
-###### POST -Login
+###### POST - Login
 Corpo de requisição:
 ```json
 {
