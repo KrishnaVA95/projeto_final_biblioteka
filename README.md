@@ -9,9 +9,17 @@
 
 ## Index
 
-* [Introdução](#introducao)
+* [Introdução](#introdução)
+* [Base url](#base--url)
+* [Como Rodar os testes](#como--rodar--os--testes)
 * [Rotas & Endpoints](#rotas--endpoints)
+* [Account](#account)
+* [Login](#login)
 * [Book](#book)
+* [Copy](#copy)
+* [Loans](#loans)
+* [Gender](#gender)
+* [Publishing_company](#publishing_company)
 
 
 ### Introdução
@@ -28,17 +36,24 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 	<li></li>
 </ul>
 
+**[⬆ Back to Index](#index)**
 
 
 
+# Como Rodar os testes: 
 
-# Como Rodar os tests: 
+**[⬆ Back to Index](#index)**
 
-# Rotas & Endpoints
+# Base url
 base url:
 ```
 
 ```
+
+**[⬆ Back to Index](#index)**
+
+# Rotas & Endpoints
+
 ### Account
 Tipos de usuários:
 <ul>
@@ -92,9 +107,24 @@ Resposta do servidor:
 
 
 ```
+api/accounts/<int:pk>/
+```
+
+###### GET -  staff, admin e o próprio usuário
+###### PATCH - staff, admin e o próprio usuário
+###### DELETE -staff, admin e o próprio usuário
+
+**[⬆ Back to Index](#index)**
+
+### Login
+
+```
 api/accounts/login/
 ```
-###### POST - Login
+
+
+
+###### POST - 
 Corpo de requisição:
 ```json
 {
@@ -112,13 +142,10 @@ Resposta do servidor:
 }
 ```
 
-```
-api/accounts/<int:pk>/
-```
 
-###### GET -  staff, admin e o próprio usuário
-###### PATCH - staff, admin e o próprio usuário
-###### DELETE -staff, admin e o próprio usuário
+**[⬆ Back to Index](#index)**
+
+
 
 ### Book
 
@@ -140,6 +167,7 @@ api/books/<int:pk>/
 ###### PATCH - apenas staff ou admin pode editar livros
 ###### DELETE - apenas staff ou admin pode deletar livros
 
+**[⬆ Back to Index](#index)**
 
 ### Copy
 
@@ -157,6 +185,9 @@ api/books/<int:pk>/copys/<int:fk>/
 ###### GET - apenas staff ou admin
 ###### PATCH - apenas staff ou admin pode editar cópias
 ###### DELETE - apenas staff ou admin pode deletar cópias
+
+
+**[⬆ Back to Index](#index)**
 
 ### Loans
 
@@ -273,6 +304,7 @@ Resposta do servidor:
 }
 ```	
 
+**[⬆ Back to Index](#index)**
 
 ### Gender
 ```
@@ -291,6 +323,8 @@ api/genres/<int:pk>/
 ###### PATCH - apenas staff ou admin
 ###### DELETE - apenas staff ou admin
 
+
+**[⬆ Back to Index](#index)**
 
 
 ### Publishing_company
@@ -311,3 +345,4 @@ api/publishing_company/<int:pk>/
 ###### DELETE - apenas staff ou admin
 
 
+**[⬆ Back to Index](#index)**
