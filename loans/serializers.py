@@ -22,6 +22,7 @@ class LoanSerializer(serializers.ModelSerializer):
         print(type( deadline ))
         # Adiciona o prazo ao objeto Loan
         validated_data['deadline'] = deadline
+        # validated_data['deadline'] = '2023-07-08'
 
         return super().create(validated_data)
     
