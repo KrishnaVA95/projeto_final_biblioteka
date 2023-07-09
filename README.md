@@ -6,6 +6,14 @@
   <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
 </div>
 
+# INDEX
+<ul align="center" >
+	<li> ## Introdução {###Introdução}</li>
+
+</ul>
+
+
+### Introdução
 O sistema BiblioteKa é um software desenvolvido no quinto módulo do curso de Desenvolvimento Web Full Stack da Kenzie Academy Brasil. A aplicação gerencia atividades de uma biblioteca. Sendo assim, nosso objetivo é criar uma API para manipular os conteúdos e as regras de negócio.
 
 O banco de dados do sistema é composto por tabelas fundamentais com diferentes responsabilidades, sendo elas:
@@ -42,38 +50,66 @@ Tipos de usuários:
 ```
 api/accounts/
 ```
-List
-###### GET - Apenas staff e admin podem listar todos os usuários
-não é necessario um corpo de requisição
 
-create
+###### GET - Apenas staff e admin podem listar todos os usuários
+Não é necessario corpo de requisição:
+status 200
+Resposta do servidor: 
+```
+
+```
+
+
 ###### POST - Qualquer pessoa pode criar uma conta. Apenas Admin deve ter permissão para criar staff.
 
-datos de entrada: 
+Corpo de requisição:
 ```json
 {
-	"name": "",
-	"email": "",
-	"password": "",
-	"address": "",
-	"cpf":""
+	"username": "user",
+	"password": "1234",
+	"cpf": "00000000007",
+	"email": "user@mail.com",
+	"address": "rua 01, numero 000"
 }
-
 ```
-dados de saída:
+
+status 201
+Resposta do servidor: 
 ```json
 {
-	"id": 1,
-	"name": "",
-	"email": "",
-	"address": "",
-	"cpf": "",
+	"id": 4,
+	"cpf": "00000000007",
+	"username": "user",
+	"email": "user@mail.com",
 	"is_staff": false,
-	"permission_loan": true
+	"address": "rua 01, numero 000",
+	"created_at": "2023-07-09",
+	"permission_loan": true,
+	"loans": []
 }
-
 ```
 
+
+```
+api/accounts/login/
+```
+###### POST -Login
+Corpo de requisição:
+```json
+{
+	"username": "user",
+	"password": "1234"
+}
+```
+
+status 200
+Resposta do servidor: 
+```json
+{
+	"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4OTUxNDk2NSwiaWF0IjoxNjg4OTEwMTY1LCJqdGkiOiIzZDkyMjNkOGNlN2I0NDcyOWFhYjU5NWM2MzJkY2JiZSIsInVzZXJfaWQiOjR9.4YNclXtwpY-IuN66plToo_pC5xLdeegvaeGKOG9wh_o",
+	"access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4OTY0MTY1LCJpYXQiOjE2ODg5MTAxNjUsImp0aSI6IjMwYjQ0ZjFjZDg5MjQzNGNhODE3OWY4ZDQwNDJkNGIxIiwidXNlcl9pZCI6NH0.rgdOrMMFjvlaSZuavcouvZWpMIr0e0vM-1nNBzxcLfs"
+}
+```
 
 ```
 api/accounts/<int:pk>/
@@ -128,15 +164,113 @@ api/loans/
 ```	
 
 ###### GET -  apenas staff ou admin
+Não é necessario corpo de requisição:
+status 200
+Resposta do servidor: 
+```json
+{
+	"count": 7,
+	"next": "http://127.0.0.1:8000/api/loans/?page=4",
+	"previous": "http://127.0.0.1:8000/api/loans/?page=2",
+	"results": [
+		{
+			"id": 5,
+			"overdue": true,
+			"created_at": "2023-07-09",
+			"deadline": "2023-07-08",
+			"finalized_loan": false,
+			"copies": [
+				1
+			],
+			"account": 2
+		},
+		{
+			"id": 6,
+			"overdue": false,
+			"created_at": "2023-07-09",
+			"deadline": "2023-07-08",
+			"finalized_loan": true,
+			"copies": [
+				2
+			],
+			"account": 1
+		}
+	]
+}
+```	
+
+
 ###### POST - apenas staff ou admin 
+Corpo de requisição:
+```json
+{
+	"copies": [2],
+	"account": 1
+}
+```	
+
+status 201
+Resposta do servidor: 
+```json
+{
+	"id": 8,
+	"overdue": false,
+	"created_at": "2023-07-09",
+	"deadline": "2023-07-12",
+	"finalized_loan": false,
+	"copies": [
+		2
+	],
+	"account": 1
+}
+```	
+
 
 ```
 api/loans/<int:pk>/
 ```	
 
 ###### GET - apenas staff ou admin ou user autenticado
-###### PATCH - apenas staff ou admin
-###### DELETE - apenas staff ou admin 
+Não é necessario corpo de requisição:
+status 200
+Resposta do servidor: 
+```json
+{
+	"id": 8,
+	"overdue": false,
+	"created_at": "2023-07-09",
+	"deadline": "2023-07-12",
+	"finalized_loan": false,
+	"copies": [
+		2
+	],
+	"account": 1
+}
+```	
+###### PUT - apenas staff ou admin
+Finalizar agendamento:
+Corpo de requisição:
+```json
+{
+  "finalized_loan": true
+}
+```	
+
+status 200
+Resposta do servidor: 
+```json
+{
+	"id": 8,
+	"overdue": false,
+	"created_at": "2023-07-09",
+	"deadline": "2023-07-12",
+	"finalized_loan": true,
+	"copies": [
+		2
+	],
+	"account": 1
+}
+```	
 
 
 ### Gender
