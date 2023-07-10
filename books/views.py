@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework.views import APIView, Request, Response, status
 from rest_framework import generics
 from books.models import Book, Publishing_company
@@ -7,15 +7,14 @@ from books.serializers import BookSerializer, CompanySerializer
 class BookView(generics.ListCreateAPIView):
     queryset= Book.objects.all()
     serializer_class= BookSerializer
-
-
+'''
     def post(self, request: Request) -> Response:
         serializer = BookSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         serializer.save()
 
-        return Response(serializer.data,status.HTTP_201_CREATED)
+        return Response(serializer.data,status.HTTP_201_CREATED)'''
        
 class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
      queryset= Book.objects.all()
