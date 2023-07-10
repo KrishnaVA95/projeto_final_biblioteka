@@ -16,19 +16,20 @@ class AccountSerializer(serializers.ModelSerializer):
             "address",
             "created_at",
             "permission_loan",
+            "loans"
         ]
         extra_kwargs = {
-            # "username": {
-            #     "validators": [
-            #         UniqueValidator(
-            #             queryset=Account.objects.all(),
-            #             message="A user with that username already exists.",
-            #         )
-            #     ]
-            # },
             "email": {"validators": [UniqueValidator(queryset=Account.objects.all())]},
             "password": {"write_only": True},
         }
+        read_only_fields = [
+            'id',
+            "created_at",
+            "is_staff",
+            "permission_loan",
+            "loans"
+        ]
+
 
     def create(self, validated_data):
         return Account.objects.create_user(**validated_data)

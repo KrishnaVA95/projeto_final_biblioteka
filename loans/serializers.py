@@ -16,7 +16,7 @@ class LoanSerializer(serializers.ModelSerializer):
         return copies_loan.data
     class Meta:
         model = Loan
-        fields = ['id','overdue', 'created_at', 'deadline', 'copies', 'account', "loan_copies"]
+        fields = ['id','overdue', 'created_at', 'deadline', 'finalized_loan', 'copies', 'account']
         read_only_fields = ['id', 'created_at', 'deadline', 'overdue' ]
         extra_kwargs ={'copies':{'write_only':True}}
  

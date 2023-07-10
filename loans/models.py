@@ -4,6 +4,8 @@ class Loan(models.Model):
     created_at = models.DateField(auto_now_add=True)
     deadline = models.DateField(null=True)
     overdue = models.BooleanField(null=True, default=False)
+    finalized_loan = models.BooleanField(null=True, default=False)
+    
 
     copies = models.ManyToManyField(
         "copys.Copy",
