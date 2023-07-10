@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from .models import Gender
+from .serializer import GenderSerializer
+from rest_framework import generics
 
-# Create your views here.
+class GenderView(generics.ListCreateAPIView):
+    queryset= Gender.objects.all()
+    serializer_class= GenderSerializer
+
+
+class GenderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset= Gender.objects.all()
+    serializer_class= GenderSerializer
