@@ -7,7 +7,6 @@
 </div>
 
 
-
 ## Index
 
 * [Introdução](#introdução)
@@ -21,9 +20,6 @@
 * [Loans](#loans)
 * [Gender](#gender)
 * [Publishing_company](#publishing_company)
-
-
-
 
 
 ---
@@ -44,7 +40,6 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 </ul>
 
 **[⬆ Back to Index](#index)**
-
 
 ---
 <br />
@@ -85,14 +80,18 @@ api/accounts/
 ```
 
 ###### GET - Apenas staff e admin podem listar todos os usuários
+
 Não é necessario corpo de requisição:
+
 `status 200`
+
 Resposta do servidor: 
 ```
 
 ```
 
 <h4 align ='center'> Criar usuário </h4>
+
 
 ###### POST - Qualquer pessoa pode criar uma conta. Apenas Admin deve ter permissão para criar staff.
 
@@ -111,9 +110,10 @@ Corpo de requisição:
 }
 ```
 
+Resposta do servidor: 
+
 `status 201`
 
-Resposta do servidor: 
 ```json
 {
 	"id": 4,
@@ -129,15 +129,27 @@ Resposta do servidor:
 ```
 
 
----
-<br />
+<h4 align ='center'> Consultar usuário </h4>
 
 ```
 api/accounts/<int:pk>/
 ```
 
 ###### GET -  staff, admin e o próprio usuário
+
+<h4 align ='center'> Editar usuário </h4>
+
+```
+api/accounts/<int:pk>/
+```
+
 ###### PATCH - staff, admin e o próprio usuário
+
+<h4 align ='center'> Deletar  usuário </h4>
+
+```
+api/accounts/<int:pk>/
+```
 ###### DELETE -staff, admin e o próprio usuário
 
 **[⬆ Back to Index](#index)**
