@@ -9,7 +9,7 @@ class Book(models.Model):
     published = models.IntegerField()
     number_copy = models.IntegerField()
     copies_available = models.IntegerField()
-    publishing_company_id = models.ForeignKey(
+    publishing_company = models.ForeignKey(
         "books.Publishing_company",
         on_delete=models.PROTECT,
         related_name="books"

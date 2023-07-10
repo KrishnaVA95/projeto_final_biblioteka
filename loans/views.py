@@ -1,3 +1,6 @@
+from django.shortcuts import get_object_or_404
+
+from copys.models import Copy
 from .models import Loan
 from .serializers import LoanSerializer
 from rest_framework import generics
