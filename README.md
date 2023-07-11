@@ -1,14 +1,14 @@
-# BiblioteKa
 
-<div>
+<div style="display: flex; justify-content: space-between;">
+	<h1>BiblioteKa</h1>
+	<div>
 		<img align="center" alt="Django" height="30" width="60" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg">
 		<img align="center" alt="PSQL" height="30" width="40" src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg">
 		<img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+	</div>
 </div>
 
-
-
-## Index
+# <h1 style="text-align: center; color:#b2d9f7;">Index</h1>
 
 * [Introdução](#introdução)
 * [Base URL](#base--url)
@@ -23,36 +23,53 @@
 * [Loans](#loans)
 
 
----
-<br />
 
-# Introdução
+# <h1 style="text-align: center; color:#b2d9f7;">Introdução</h1>
+<p style="letter-spacing: 2px; line-height: 200%;  text-align: justify;">
 O sistema BiblioteKa é um software desenvolvido no quinto módulo do curso de Desenvolvimento Web Full Stack da Kenzie Academy Brasil. A aplicação gerencia atividades de uma biblioteca. Sendo assim, nosso objetivo é criar uma API para manipular os conteúdos e as regras de negócio.
+</p>
 
+<p style="letter-spacing: 2px; line-height: 200%;  text-align: justify;">
 O banco de dados do sistema é composto por tabelas fundamentais com diferentes responsabilidades, sendo elas:
+</p>
 
 <ul>
-	<li> Usuários: Contamos com 3 principais tipos de usuários: estudante, colaborador da biblioteca (staff) e admin. Os usuários do tipo estudante são aqueles que podem emprestar livros da biblioteca e devem devolvê-los dentro do prazo, eles têm acesso limitado. Os usuários do tipo colaborador da biblioteca são aqueles que trabalham na biblioteca, eles podem adicionar ou remover livros, cópias e agendamentos. Além disso, eles podem gerenciar usuários não staff. Os usuários do tipo admin são aqueles que têm acesso total ao sistema de biblioteca, a grande diferença entre ele e staff é a permissão de gerenciar e criar usuários do tipo staff.</li>
-	<li>Livros: Usada para armazenar informações sobre os livros da biblioteca, como título, autor, capa, número de páginas e gênero.</li>
-	<li>Gêneros: A tabela de gênero está diretamente relacionada com a tabela de livros, oferecendo uma vasta gama de possibilidades na hora de cadastrar um novo livro no sistema.</li>
-	<li>Cópias: Ela é usada para armazenar informações sobre as cópias dos livros da biblioteca. Isso é importante porque permite que os usuários da biblioteca saibam quantas cópias de um livro estão disponíveis para empréstimo e quantas cópias já foram emprestadas.</li>
-	<li>Agendamentos: Usada para armazenar informações sobre os agendamentos dos usuários da biblioteca em relação às cópias. No momento do agendamento é gerada uma data em que um usuário levou a cópia e uma data em que a cópia deve ser devolvida. Esse prazo final foi estabelecido como 3 dias úteis depois da data do agendamento. Além disso, o sistema da Biblioteka conta com uma automação que revisa todos os agendamentos uma vez ao dia. Essa automação verifica se os livros foram devolvidos dentro do prazo e define o campo de atraso como verdadeiro caso o agendamento tenha passado do tempo limite</li>
+	<li > 
+		<p style="letter-spacing: 2px; line-height: 200%; color:#b2d9f7;">Accounts:</p>
+		<p style="line-height: 200%;  text-align: justify;">	Contamos com 3 principais tipos de usuários: estudante, colaborador da biblioteca (staff) e admin. Os usuários do tipo estudante são aqueles que podem emprestar livros da biblioteca e devem devolvê-los dentro do prazo, eles têm acesso limitado. Os usuários do tipo colaborador da biblioteca são aqueles que trabalham na biblioteca, eles podem adicionar ou remover livros, cópias e agendamentos. Além disso, eles podem gerenciar usuários não staff. Os usuários do tipo admin são aqueles que têm acesso total ao sistema de biblioteca, a grande diferença entre ele e staff é a permissão de gerenciar e criar usuários do tipo staff.</p>
+	</li>
+	<li>
+		<p style="letter-spacing: 2px; line-height: 200%; color:#b2d9f7;">Books:</p>
+		<p style="line-height: 200%;  text-align: justify;">Usada para armazenar informações sobre os livros da biblioteca, como título, autor, capa, número de páginas e gênero.</p>
+	</li>
+	<li>
+		<p style="letter-spacing: 2px; line-height: 200%; color:#b2d9f7;">Genres:</p>
+		<p style="line-height: 200%;  text-align: justify;">A tabela de gênero está diretamente relacionada com a tabela de livros, oferecendo uma vasta gama de possibilidades na hora de cadastrar um novo livro no sistema.</p>
+	 </li>
+	<li>
+		<p style="letter-spacing: 2px; line-height: 200%; color:#b2d9f7;">Copies:</p>
+		<p style="line-height: 200%;  text-align: justify;">Ela é usada para armazenar informações sobre as cópias dos livros da biblioteca. Isso é importante porque permite que os usuários da biblioteca saibam quantas cópias de um livro estão disponíveis para empréstimo e quantas cópias já foram emprestadas.</p>	
+	 </li>
+	<li>
+		<p style="letter-spacing: 2px; line-height: 200%; color:#b2d9f7;">Loans:</p>
+		<p style="line-height: 200%;  text-align: justify;">Usada para armazenar informações sobre os agendamentos dos usuários da biblioteca em relação às cópias. No momento do agendamento é gerada uma data em que um usuário levou a cópia e uma data em que a cópia deve ser devolvida. Esse prazo final foi estabelecido como 3 dias úteis depois da data do agendamento. Além disso, o sistema da Biblioteka conta com uma automação que revisa todos os agendamentos uma vez ao dia. Essa automação verifica se os livros foram devolvidos dentro do prazo e define o campo de atraso como verdadeiro caso o agendamento tenha passado do tempo limite</p>	
+	 </li>
 	<li></li>
 </ul>
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-# Como Rodar os testes: 
+
+# <h1 style="text-align: center; color:#b2d9f7;">Como Rodar os testes</h1>
+ 
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-# Base url
+
+# <h1 style="text-align: center; color:#b2d9f7;">Base url</h1>
+
 
 ```
 https://doc-biblioteka.onrender.com/
@@ -60,12 +77,12 @@ https://doc-biblioteka.onrender.com/
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-# Endpoints
 
-### Account
+# <h1 style="text-align: center; color:#b2d9f7;">Endpoints</h1>
+
+# <h2 style="text-align: center; color:#b2d9f7;">Account</h2>
+
 Tipos de usuários:
 <ul>
     <li>Estudante</li>
@@ -73,8 +90,8 @@ Tipos de usuários:
     <li>Admin</li>
 </ul>
 
+# <h3 style="color:#b2d9f7;">Listagem de usuários</h3>
 
-<h4 align ='center'> Listagem de usuários </h4>
 
 ```
 api/accounts/
@@ -114,7 +131,8 @@ Resposta do servidor:
 ]
 ```
 
-<h4 align ='center'> Criar usuário </h4>
+# <h3 style="color:#b2d9f7;">Criar usuário</h3>
+
 
 ```
 api/accounts/
@@ -152,8 +170,8 @@ Resposta do servidor:
 }
 ```
 
+# <h3 style="color:#b2d9f7;">Consultar usuário</h3>
 
-<h4 align ='center'> Consultar usuário </h4>
 
 ```
 api/accounts/<int:pk>/
@@ -180,8 +198,8 @@ Resposta do servidor:
 	"loans": []
 }
 ```
+# <h3 style="color:#b2d9f7;">Editar usuário</h3>
 
-<h4 align ='center'> Editar usuário </h4>
 
 ```
 api/accounts/<int:pk>/
@@ -190,8 +208,8 @@ api/accounts/<int:pk>/
 ###### PATCH - staff, admin e o próprio usuário
 
 
+# <h3 style="color:#b2d9f7;">Deletar usuário</h3>
 
-<h4 align ='center'> Deletar  usuário </h4>
 
 ```
 api/accounts/<int:pk>/
@@ -200,19 +218,16 @@ api/accounts/<int:pk>/
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-### Login
 
----
-<br />
+# <h2 style="text-align: center; color:#b2d9f7;">Login</h2>
+
+
+# <h3 style="color:#b2d9f7;">Login</h3>
 
 ```
 api/accounts/login/
 ```
-
-
 
 ###### POST - 
 Corpo de requisição:
@@ -238,12 +253,11 @@ Resposta do servidor:
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-### Gender
+# <h2 style="text-align: center; color:#b2d9f7;">Gender</h2>
 
-<h4 align ='center'> Listagem de Gêneros </h4>
+# <h3 style="color:#b2d9f7;">Listagem de Gêneros</h3>
+
 
 ```
 api/genres/
@@ -277,7 +291,9 @@ Resposta do servidor:
 }
 ```
 
-<h4 align ='center'> Criar Gênero </h4>
+
+# <h3 style="color:#b2d9f7;"> Criar Gênero </h3>
+
 
 ```
 api/genres/
@@ -304,7 +320,9 @@ Resposta do servidor:
 ```
 
 
-<h4 align ='center'> Consultar Gênero </h4>
+
+# <h3 style="color:#b2d9f7;"> Consultar Gênero </h3>
+
 
 ```
 api/genres/<int:pk>/
@@ -312,7 +330,10 @@ api/genres/<int:pk>/
 ###### GET - todos tem acesso
 
 
-<h4 align ='center'> Atualizar Gênero </h4>
+
+
+# <h3 style="color:#b2d9f7;"> Atualizar Gênero  </h3>
+
 
 ```
 api/genres/<int:pk>/
@@ -335,7 +356,12 @@ Resposta do servidor:
 	"name": "um Genero Editadoo"
 }
 ```
-<h4 align ='center'> Deletar Gênero </h4>
+
+
+
+
+# <h3 style="color:#b2d9f7;"> Deletar Gênero   </h3>
+
 
 ```
 api/genres/<int:pk>/
@@ -352,12 +378,9 @@ Sem corpo de resposta
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
+# <h2 style="text-align: center; color:#b2d9f7;">Publishing_company</h2>
 
-### Publishing_company
-
-<h4 align ='center'> Listar Editoras </h4>
+# <h3 style="color:#b2d9f7;">Listar Editoras</h3>
 
 ```
 api/publishing_company/
@@ -391,7 +414,9 @@ Resposta do servidor:
 }
 ```
 
-<h4 align ='center'> Criar Editoras </h4>
+
+# <h3 style="color:#b2d9f7;">Criar Editoras</h3>
+
 
 ```
 api/publishing_company/
@@ -415,8 +440,8 @@ Resposta do servidor:
 	"name": "Editora 01"
 }
 ```
+# <h3 style="color:#b2d9f7;">Consultar Editora</h3>
 
-<h4 align ='center'> Consultar Editora </h4>
 
 ```
 api/publishing_company/<int:pk>/
@@ -428,8 +453,9 @@ Não é necessario corpo de requisição:
 Resposta do servidor: 
 
 `status 200`
+# <h3 style="color:#b2d9f7;">Editar  Editora</h3>
 
-<h4 align ='center'> Editar  Editora </h4>
+
 
 ```
 api/publishing_company/<int:pk>/
@@ -452,8 +478,9 @@ Resposta do servidor:
 	"name": "um valor Editado"
 }
 ```
+# <h3 style="color:#b2d9f7;">Deletar  Editora</h3>
 
-<h4 align ='center'> Deletar Editora </h4>
+>
 
 ```
 api/publishing_company/<int:pk>/
@@ -469,12 +496,11 @@ Sem corpo de resposta
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
+# <h2 style="text-align: center; color:#b2d9f7;">Book</h2>
 
-### Book
 
-<h4 align ='center'> Listar Livros</h4>
+# <h3 style="color:#b2d9f7;"> Listar Livros</h3>
+
 
 ```
 api/books/
@@ -522,8 +548,8 @@ Resposta do servidor:
 	]
 }
 ```
+# <h3 style="color:#b2d9f7;"> Cadastrar Livro</h3>
 
-<h4 align ='center'> Cadastrar Livro</h4>
 
 ```
 api/books/
@@ -574,15 +600,19 @@ Resposta do servidor:
 	]
 }
 ```
+# <h3 style="color:#b2d9f7;"> Consultar Livro</h3>
 
-<h4 align ='center'> Consultar Livro</h4>
+
 		
 ```
 api/books/<int:pk>/
 ```	
 ###### GET usuários não autenticados podem acessar acessar.
 
-<h4 align ='center'> Editar Livro</h4>
+
+# <h3 style="color:#b2d9f7;"> Editar Livro</h3>
+
+
 
 
 ```
@@ -597,8 +627,7 @@ Corpo de requisição:
 	  "title": "Um título Editado"
 }
 ```
-
-<h4 align ='center'> Deletar Livro</h4>
+# <h3 style="color:#b2d9f7;"> Deletar Livro</h3>
 
 
 ```
@@ -609,12 +638,13 @@ api/books/<int:pk>/
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-### Copy
+# <h2 style="text-align: center; color:#b2d9f7;">Copy</h2>
 
-<h4 align ='center'> Listar Cópias</h4>
+# <h3 style="color:#b2d9f7;"> Listar Cópias</h3>
+
+
+<h4 align ='center'> </h4>
 	
 ```
 api/books/copys/
@@ -693,8 +723,8 @@ Resposta do servidor:
 	]
 }
 ```
+# <h3 style="color:#b2d9f7;"> Cadastrar Cópia</h3>
 
-<h4 align ='center'> Cadastrar Cópia</h4>
 
 ```
 api/books/<int:pk>/copys/
@@ -742,31 +772,36 @@ Resposta do servidor
 	}
 }
 ```
+# <h3 style="color:#b2d9f7;"> Consultar Cópia</h3>
 
-<h4 align ='center'> Consultar Cópia</h4>
 
 ###### GET - apenas staff ou admin
 
-<h4 align ='center'> Editar Cópia</h4>
+# <h3 style="color:#b2d9f7;"> Editar Cópia</h3>
+
 
 ###### PATCH - apenas staff ou admin pode editar cópias
 
-<h4 align ='center'> Deletar Cópia</h4>
+# <h3 style="color:#b2d9f7;"> Deletar Cópia</h3>
+
 
 ###### DELETE - apenas staff ou admin pode deletar cópias
 
 
 **[⬆ Back to Index](#index)**
 
----
-<br />
 
-### Loans
 
-<h4 align ='center'> Listar todos  Agendamentos</h4>
+# <h2 style="text-align: center; color:#b2d9f7;">Loans</h2>
 
+# <h3 style="color:#b2d9f7;"> Listar todos  Agendamentos</h3>
+ 
 ```
 api/loans/
+```	
+ou
+```
+api/loans/?page=1
 ```	
 
 ###### GET -  apenas staff ou admin
@@ -859,8 +894,8 @@ Resposta do servidor:
 	]
 }
 ```	
+# <h3 style="color:#b2d9f7;">  Criar Agendamento</h3>
 
-<h4 align ='center'> Criar Agendamento </h4>
 
 ###### POST - apenas staff ou admin 
 Corpo de requisição:
@@ -912,9 +947,12 @@ Resposta do servidor:
 	]
 }
 ```	
+<p style="letter-spacing: 2px; line-height: 200%;  text-align: justify;">
 Nota: Observe que ao criar um agendamento para a cópia de id 1, o campo “available” que antes era verdadeiro agora é falso. Da mesma forma, o campo “copies_available” do livro correspondente foi decrementado em 1.
+</p>
 
-<h4 align ='center'> Consultar Agendamento </h4>
+# <h3 style="color:#b2d9f7;">  Consultar Agendamento</h3>
+
 
 ```
 api/loans/<int:pk>/
@@ -963,8 +1001,8 @@ Resposta do servidor:
 	]
 }
 ```	
+# <h3 style="color:#b2d9f7;">  Devolução do livro - Atualizar  Agendamento</h3>
 
-<h4 align ='center'> Devolução do livro - Atualizar  Agendamento </h4>
 
 ###### PUT - apenas staff ou admin
 
@@ -1017,7 +1055,11 @@ Resposta do servidor:
 	]
 }
 ```	
+
+<p style="letter-spacing: 2px; line-height: 200%;  text-align: justify;">
 Nota: Observe que ao finalizar o agendamento da cópia de id 1, o campo “available” que antes era falso agora é verdadeiro. Da mesma forma, o campo “copies_available” do livro correspondente foi acrescentado em 1.
+</p>
+
 
 **[⬆ Back to Index](#index)**
 
