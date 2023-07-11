@@ -54,7 +54,7 @@ O banco de dados do sistema é composto por tabelas fundamentais com diferentes 
 # Base url
 
 ```
-
+https://doc-biblioteka.onrender.com/
 ```
 
 **[⬆ Back to Index](#index)**
@@ -86,8 +86,31 @@ Não é necessario corpo de requisição:
 `status 200`
 
 Resposta do servidor: 
-```
-
+```json
+[
+	{
+		"id": 1,
+		"cpf": "00000000000",
+		"username": "user",
+		"email": "user@mail.com",
+		"is_staff": false,
+		"address": "rua 01, numero 000",
+		"created_at": "2023-07-10",
+		"permission_loan": true,
+		"loans": []
+	},
+	{
+		"id": 2,
+		"cpf": "00000000002",
+		"username": "user2",
+		"email": "user2@mail.com",
+		"is_staff": false,
+		"address": "rua 01, numero 000",
+		"created_at": "2023-07-10",
+		"permission_loan": true,
+		"loans": []
+	}
+]
 ```
 
 <h4 align ='center'> Criar usuário </h4>
@@ -104,7 +127,7 @@ Corpo de requisição:
 {
 	"username": "user",
 	"password": "1234",
-	"cpf": "00000000007",
+	"cpf": "00000000000",
 	"email": "user@mail.com",
 	"address": "rua 01, numero 000"
 }
@@ -116,13 +139,13 @@ Resposta do servidor:
 
 ```json
 {
-	"id": 4,
-	"cpf": "00000000007",
+	"id": 1,
+	"cpf": "00000000000",
 	"username": "user",
 	"email": "user@mail.com",
 	"is_staff": false,
 	"address": "rua 01, numero 000",
-	"created_at": "2023-07-09",
+	"created_at": "2023-07-10",
 	"permission_loan": true,
 	"loans": []
 }
@@ -137,6 +160,26 @@ api/accounts/<int:pk>/
 
 ###### GET -  staff, admin e o próprio usuário
 
+
+Não é necessario corpo de requisição:
+
+`status 200`
+
+Resposta do servidor: 
+```json
+{
+	"id": 1,
+	"cpf": "00000000000",
+	"username": "user",
+	"email": "user@mail.com",
+	"is_staff": false,
+	"address": "rua 01, numero 000",
+	"created_at": "2023-07-10",
+	"permission_loan": true,
+	"loans": []
+}
+```
+
 <h4 align ='center'> Editar usuário </h4>
 
 ```
@@ -144,6 +187,8 @@ api/accounts/<int:pk>/
 ```
 
 ###### PATCH - staff, admin e o próprio usuário
+
+
 
 <h4 align ='center'> Deletar  usuário </h4>
 
@@ -181,10 +226,176 @@ status 200
 Resposta do servidor: 
 ```json
 {
-	"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4OTUxNDk2NSwiaWF0IjoxNjg4OTEwMTY1LCJqdGkiOiIzZDkyMjNkOGNlN2I0NDcyOWFhYjU5NWM2MzJkY2JiZSIsInVzZXJfaWQiOjR9.4YNclXtwpY-IuN66plToo_pC5xLdeegvaeGKOG9wh_o",
-	"access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4OTY0MTY1LCJpYXQiOjE2ODg5MTAxNjUsImp0aSI6IjMwYjQ0ZjFjZDg5MjQzNGNhODE3OWY4ZDQwNDJkNGIxIiwidXNlcl9pZCI6NH0.rgdOrMMFjvlaSZuavcouvZWpMIr0e0vM-1nNBzxcLfs"
+	"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4OTYzMTk5NSwiaWF0IjoxNjg5MDI3MTk1LCJqdGkiOiJkMjM5NGJlZjdjOGQ0N2UyOTVhNmJiYTAzZjA5ZmNmMiIsInVzZXJfaWQiOjF9.EgkpxrRVwtBcVRDMnGFD02MTr7ONA7DkO9efdjHOoSg",
+	"access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDgxMTk1LCJpYXQiOjE2ODkwMjcxOTUsImp0aSI6ImEzNjhlNTE1ZTZkODRiOGVhYzJmYjU0MzY0ZDZhZTc4IiwidXNlcl9pZCI6MX0.BQeJfYOMMV26CraRlyXEYXbsRB0vaKaGwldG0bPfIWY"
 }
 ```
+
+
+**[⬆ Back to Index](#index)**
+
+---
+<br />
+
+### Gender
+
+<h4 align ='center'> Listagem de Gêneros </h4>
+
+```
+api/genres/
+```
+or
+```
+api/genres/?page=1
+```
+###### GET -  todos tem acesso
+Não é necessario corpo de requisição:
+
+Resposta do servidor: 
+
+`status 200`
+
+```json
+{
+	"count": 5,
+	"next": "https://doc-biblioteka.onrender.com/api/genres/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": 1,
+			"name": "Suspense"
+		},
+		{
+			"id": 3,
+			"name": "Ficção"
+		}
+	]
+}
+```
+
+<h4 align ='center'> Criar Gênero </h4>
+
+```
+api/genres/
+```
+
+###### POST - apenas staff ou admin
+
+Corpo de requisição:
+```json
+{
+	"name": "Suspense"
+}
+```
+
+Resposta do servidor: 
+
+`status 201`
+
+```json
+{
+	"id": 1,
+	"name": "Suspense"
+}
+```
+
+
+<h4 align ='center'> Consultar Gênero </h4>
+
+```
+api/genres/<int:pk>/
+```
+###### GET - todos tem acesso
+
+
+<h4 align ='center'> Atualizar Gênero </h4>
+
+```
+api/genres/<int:pk>/
+```
+###### PATCH - apenas staff ou admin
+Corpo de requisição:
+```json
+{
+	"name": "um Genero Editadoo"
+}
+```
+
+Resposta do servidor: 
+
+`status 200`
+
+```json
+{
+	"id": 4,
+	"name": "um Genero Editadoo"
+}
+```
+<h4 align ='center'> Deletar Gênero </h4>
+
+###### DELETE - apenas staff ou admin
+
+```
+api/genres/<int:pk>/
+```
+Não é necessario corpo de requisição:
+
+Resposta do servidor: 
+
+`status 204`
+
+Sem corpo de resposta
+
+**[⬆ Back to Index](#index)**
+
+---
+<br />
+
+### Publishing_company
+
+<h4 align ='center'> Listar Editoras </h4>
+
+```
+api/publishing_company/
+```
+or
+```
+api/publishing_company/?page=1
+```
+		
+###### GET -  todos tem acesso
+```json
+{
+	"count": 4,
+	"next": "https://doc-biblioteka.onrender.com/api/publishing_company/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": 1,
+			"name": "Editora 01"
+		},
+		{
+			"id": 2,
+			"name": "Editora 02"
+		}
+	]
+}
+```
+<!-- Parei aqui -->
+<h4 align ='center'> Criar Editoras </h4>
+
+```
+api/publishing_company/
+```
+###### POST - apenas staff ou admin
+
+```
+api/publishing_company/<int:pk>/
+```
+		
+###### GET - todos tem acesso
+###### PATCH - apenas staff ou admin
+###### DELETE - apenas staff ou admin
 
 
 **[⬆ Back to Index](#index)**
@@ -360,48 +571,3 @@ Resposta do servidor:
 ---
 <br />
 
-### Gender
-```
-api/genres/
-```
-
-###### GET -  todos tem acesso
-###### POST - apenas staff ou admin
-
-```
-api/genres/<int:pk>/
-```
-		
-	
-###### GET - todos tem acesso
-###### PATCH - apenas staff ou admin
-###### DELETE - apenas staff ou admin
-
-
-**[⬆ Back to Index](#index)**
-
----
-<br />
-
-### Publishing_company
-
-```
-api/publishing_company/
-```
-		
-###### GET -  todos tem acesso
-###### POST - apenas staff ou admin
-
-```
-api/publishing_company/<int:pk>/
-```
-		
-###### GET - todos tem acesso
-###### PATCH - apenas staff ou admin
-###### DELETE - apenas staff ou admin
-
-
-**[⬆ Back to Index](#index)**
-
----
-<br />
