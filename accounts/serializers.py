@@ -31,12 +31,12 @@ class AccountSerializer(serializers.ModelSerializer):
             'id',
             "created_at",
             "permission_loan",
-            "loans_user"
+            "loans_user",
         ]
 
 
     def create(self, validated_data):
-        if validated_data["is_staff"] == True:
+        if validated_data.get("is_staff"):
             return Account.objects.create_superuser(**validated_data)
 
         return Account.objects.create_user(**validated_data)
