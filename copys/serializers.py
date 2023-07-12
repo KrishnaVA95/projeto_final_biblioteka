@@ -13,4 +13,4 @@ class CopySerializer(serializers.ModelSerializer):
         if validated_data['book'].number_copy >= validated_data['number_copy_book']:
             return super().create(validated_data)
         else:
-            raise serializers.ValidationError("cópia inválida")
+            raise serializers.ValidationError("invalid copy number")

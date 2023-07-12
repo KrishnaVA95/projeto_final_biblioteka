@@ -9,9 +9,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
 from rest_framework import serializers
+from accounts.permissions import IsUserStaffOrAuth
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class LoanView(generics.ListCreateAPIView):
-    # apenas staff ou admin
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsUserStaffOrAuth]
     queryset= Loan.objects.all()
     serializer_class= LoanSerializer
 
@@ -23,6 +26,9 @@ class LoanView(generics.ListCreateAPIView):
                 if copy.available:
                     copy.available = False
                     copy.save()
+                    book = copy.book
+                    book.copies_available -= 1
+                    book.save()
                 else:
                     raise serializers.ValidationError("The copy is not available")
             serializer.save()
@@ -31,6 +37,8 @@ class LoanView(generics.ListCreateAPIView):
 
 class LoanDetailView(generics.RetrieveUpdateAPIView):
     # apenas staff, admin ou user autenticado
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsUserStaffOrAuth]
     queryset= Loan.objects.all()
     serializer_class= LoanSerializer
 
@@ -53,4 +61,11 @@ class LoanDetailView(generics.RetrieveUpdateAPIView):
                 loan.save()
 
                 serializer = LoanSerializer(loan)
+
+                copies = loan.copies.all()
+                for copy in copies:
+                    book = copy.book
+                    book.copies_available += 1
+                    book.save()
+
                 return Response(serializer.data)

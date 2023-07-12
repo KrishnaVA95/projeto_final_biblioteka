@@ -5,14 +5,18 @@ from accounts.permissions import IsAccountOnwer
 from accounts.serializers import AccountSerializer
 from django.contrib.auth import authenticate
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.shortcuts import get_object_or_404
 
 
 class AccountView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAccountOnwer]
+
     def get(self, request: Request) -> Response:
         accounts = Account.objects.all()
+        self.check_object_permissions(request, accounts)
         serializer = AccountSerializer(accounts, many=True)
         return Response(serializer.data, status.HTTP_200_OK)
 

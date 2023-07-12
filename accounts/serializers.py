@@ -1,9 +1,13 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from .models import Account
-
+from loans.serializers import LoanSerializer
 
 class AccountSerializer(serializers.ModelSerializer):
+    loans_user = serializers.SerializerMethodField()
+    def get_loans_user(self, values):
+        loans_user = LoanSerializer(values.loans.all(), many=True)
+        return loans_user.data
     class Meta:
         model = Account
         fields = [
@@ -16,22 +20,26 @@ class AccountSerializer(serializers.ModelSerializer):
             "address",
             "created_at",
             "permission_loan",
-            "loans"
+            "loans",
+            "loans_user"
         ]
         extra_kwargs = {
             "email": {"validators": [UniqueValidator(queryset=Account.objects.all())]},
             "password": {"write_only": True},
+            "loans": {"write_only": True}
         }
         read_only_fields = [
             'id',
             "created_at",
-            "is_staff",
             "permission_loan",
-            "loans"
+            "loans_user"
         ]
 
 
     def create(self, validated_data):
+        if validated_data["is_staff"] == True:
+            return Account.objects.create_superuser(**validated_data)
+
         return Account.objects.create_user(**validated_data)
 
     def update(self, instance, validated_data):
