@@ -25,13 +25,15 @@ class AccountSerializer(serializers.ModelSerializer):
         read_only_fields = [
             'id',
             "created_at",
-            "is_staff",
             "permission_loan",
             "loans"
         ]
 
 
     def create(self, validated_data):
+        if validated_data["is_staff"] == True:
+            return Account.objects.create_superuser(**validated_data)
+
         return Account.objects.create_user(**validated_data)
 
     def update(self, instance, validated_data):
