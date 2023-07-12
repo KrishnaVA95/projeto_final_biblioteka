@@ -20,7 +20,6 @@ class AccountSerializer(serializers.ModelSerializer):
             "address",
             "created_at",
             "permission_loan",
-            "loans",
             "loans_user"
         ]
         extra_kwargs = {
