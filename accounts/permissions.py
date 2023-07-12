@@ -6,7 +6,7 @@ from .models import Account
 
 class IsAccountOnwer(permissions.BasePermission):
     def has_object_permission(self, request: Request, view: View, obj: Account) -> bool:
-        return request.user == obj
+        return request.user == obj or request.user.is_superuser
     
 
 class IsUserStaff(permissions.BasePermission):

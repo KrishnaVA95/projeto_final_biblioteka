@@ -8,7 +8,7 @@ class Account(AbstractUser):
     password = models.CharField(max_length=127)
     cpf = models.CharField(max_length=11, null=False, unique=True)
     email = models.EmailField(max_length=127, unique=True)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(null=True, default=False)
     address = models.CharField(max_length=255)
     created_at = models.DateField(auto_now_add=True)
     permission_loan = models.BooleanField(default=True)
