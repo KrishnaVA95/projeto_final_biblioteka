@@ -29,7 +29,7 @@ class CopyListView(generics.ListAPIView):
     serializer_class= CopySerializer
     
 
-class CopyDetailView(generics.RetrieveUpdateAPIView):
+class CopyDetailView(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsUserStaffOrAuth]
 
