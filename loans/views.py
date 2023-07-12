@@ -26,6 +26,9 @@ class LoanView(generics.ListCreateAPIView):
                 if copy.available:
                     copy.available = False
                     copy.save()
+                    book = copy.book
+                    book.copies_available -= 1
+                    book.save()
                 else:
                     raise serializers.ValidationError("The copy is not available")
             serializer.save()
@@ -58,4 +61,11 @@ class LoanDetailView(generics.RetrieveUpdateAPIView):
                 loan.save()
 
                 serializer = LoanSerializer(loan)
+
+                copies = loan.copies.all()
+                for copy in copies:
+                    book = copy.book
+                    book.copies_available += 1
+                    book.save()
+
                 return Response(serializer.data)
