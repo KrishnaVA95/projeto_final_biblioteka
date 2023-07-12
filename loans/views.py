@@ -35,7 +35,7 @@ class LoanView(generics.ListCreateAPIView):
         else:
             raise serializers.ValidationError("User has outstanding delays")
 
-class LoanDetailView(generics.RetrieveUpdateAPIView):
+class LoanDetailView(generics.RetrieveUpdateDestroyAPIView):
     # apenas staff, admin ou user autenticado
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsUserStaffOrAuth]
